@@ -45,5 +45,5 @@ g)	ls -ld		Display attributes of current directory
 11.	
 a) cat *			(Display all files together)
 b) cat -n * || :set nu		(Display file contents with line no.)
-c) tac *			(Display fileconten in reversing order linewise)
+c) tac *			(Display filecontent in reversing order linewise)
 d) cat file1.txt file2.txt > filecombine.txt	(combine multiple file)
