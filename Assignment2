@@ -1,0 +1,85 @@
+
+chmod 400 1			(Making directory 1 as read only)
+1. touch {a..c}.txt d.sh	(creating files in directory)
+
+a. chmod 644 a.txt b.txt	(files a.txt and b.txt are have rw permission)	
+ or chmod u+rw a.txt b.txt  
+
+b. chmod u+w c.txt 		(file c.txt only write permission) 
+or chmod 244 c.txt		
+c. chmod u+x d.sh		(Making file d.sh executable)
+   ./b.sh
+  (write '!/bin/bash' in file )
+  
+2. chmod 100 1 			(Making directory 1 as exucute only)
+
+3. chmod 400 1			(Making directory 1 as read only)
+
+4. echo `ls ~`			(Listing all files of home directory)
+
+5. echo `ls /etc`		(echo to list the all files of /etc/ directory)
+
+6. echo `ls /etc/*.conf`	(echo to list the all files of /etc/ directory   					with extension name .conf)
+
+7. echo "Yuvraj" > a.txt	(echo to append your name to a.txt)
+
+8. echo "`ls /proc/`"		(echo to list the files of /proc/)
+
+
+SECTION B
+
+1.
+a. 
+	#!/bin/bash
+	echo "Enter two numbers:"
+	read num1
+	read num2
+	sum=`expr $num1 + $num2`
+	sub=`expr $num1 - $num2`
+	mul=`expr $num1 \* $num2`
+	div=`echo " scale=2; $num1/ $num2 " | bc`
+	echo "Sum is : $sum"
+	echo "diff is : $sub"
+	echo "mul is : $mul"
+	echo "div is : $div"
+
+
+or
+	#!/bin/bash
+	echo "Enter two numbers"
+	read x
+	read y
+
+	echo "x=$x and y=$y"
+	sum=$(($x + $y)) # doing addition
+	sub=$(($x - $y)) # doing addition
+	mul=$(($x * $y)) # doing addition
+	div=`echo "scale=2;$x / $y" | bc` # doing division
+	#div=$(($x / $y)) # doing addition
+	echo "Sum of $x and $y is $sum"
+	echo "Sub of $x and $y is $sub"
+	echo "Mul of $x and $y is $mul"
+	echo "Div of $x and $y is $div"
+
+b.
+
+	#!/bin/bash
+	cal 10 2020
+	cal 10 2018
+
+O/P:  
+		October 2020      
+		Su Mo Tu We Th Fr Sa  
+			     1  2  3  
+		 4  5  6  7  8  9 10  
+		11 12 13 14 15 16 17  
+		18 19 20 21 22 23 24  
+		25 26 27 28 29 30 31  
+				      
+		    October 2018      
+		Su Mo Tu We Th Fr Sa  
+		    1  2  3  4  5  6  
+		 7  8  9 10 11 12 13  
+		14 15 16 17 18 19 20  
+		21 22 23 24 25 26 27  
+		28 29 30 31
