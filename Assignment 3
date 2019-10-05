@@ -1,0 +1,220 @@
+1.Write a script to perform the following
+a) To count no.of processes which are running or ready in the system (Hint:- ps -e-o pid,ppid,cmd,stat, grep )
+
+ans:    ps aux | wc | tr -s ' ' | cut -f 2 -d " " 
+	
+
+
+
+b) List out foreground processes running in the system (ps suffix + in the state for
+the foreground processes)
+
+echo "`ps -e -o pid,ppid,cmd,stat|grep -e +`"
+
+
+
+c) List out all processes whose parent is init
+
+ps -e -o pid,cmd | grep ^' *1 ' 
+
+2.Write a menu based script to perform following string operations
+a) To find length of a string
+	#!/bin/bash
+         str="Yuvraj Awalekar"
+         len=`echo $str|wc -c` #print the byte counts
+        echo "length of $str=$len"
+         echo "\n" 
+        len=`echo $str|wc -w`  #print the character counts
+        echo "No of words in  $str=$len"
+
+c) Copying string
+
+d) Concatenation of strings
+
+e) Comparison of two strings
+
+f) Reversing a string
+
+
+3.Write a script to check whether given argument is a regular file or directory
+
+4.To check given year is leap or not
+
+5.Write a script to create 10 directories, say exam1,exam2,...,exam10 Report
+error if a directory/file exists with same name.
+	
+	#!/bin/bash
+	mkdir exam{1..10}
+	echo "`ls -l`"
+
+
+
+6.Write a script to check each entry of a directory is a file or directory.
+
+2.Write a menu based script to perform following string operations
+a) To find length of a string
+
+#!/bin/bash
+ str=" linux is very funny language"
+ len=`echo $str|wc -c` #print the byte counts
+echo "length of $str=$len"
+ echo "\n" 
+len=`echo $str|wc -m`  #print the character counts
+echo "length of $str=$len"
+
+
+
+
+
+b) Copying string
+
+#!/bin/bash
+ str=" cpp is very funny language"
+ 
+echo "string = $str"
+ "
+len=${#str}
+echo $len
+s=${str:1:len}
+echo $s
+
+
+
+c) Concatenation of strings
+
+#!/bin/bash
+
+
+echo "enter two strings"
+read str1
+read str2
+
+str3="$str1 $str2"
+echo "$str3"
+~                                                                     
+~                                                                     
+~                                                                     
+~                 
+
+
+
+
+d) Comparison of two strings
+#!/bin/bash
+
+echo "enter two strings "
+read str1
+read str2
+
+if [ $str1 == $str2 ]
+then
+        echo " strings match "
+else
+        echo "strings doesn't match"
+fi
+
+
+
+e) Reversing a string
+
+#!/bin/bash
+
+echo "enter a string "
+read str1
+reverse=""
+
+len=${#str1}
+echo $len
+for (( i= $len-1; i >= 0; i--))
+do
+
+        reverse="$reverse${str1:$i:1}"
+done
+
+echo "$reverse"
+
+
+3.:Write a script to check whether given argument is a regular file or directory
+#!/bin/bash
+
+echo "enter a directory name or a file name"
+read fdname
+
+if   [ -d "${fdname}" ]
+then
+        echo "${fdname} is a directory"
+elif [ -f "${fdname}" ]
+then
+        echo "${fdname} is a file"
+else
+        echo "${fdname} is not valid"
+fi
+~                                                                     
+~           
+
+4.To check given year is leap or not
+
+#!/bin/bash
+
+
+echo "Enter the year (YYYY)"
+read year
+
+if [ $((year % 4)) -eq 0 ]
+then
+  if [ $((year % 100)) -eq 0 ]
+    then
+    if [ $((year % 400)) -eq 0 ]
+          then
+        echo "its a leap year"
+    else
+           echo "its not a leap year"
+    fi
+  else
+  echo "Its a leap year"
+  fi
+else
+ echo "its not a leap year"
+
+fi
+~                                        
+
+
+5.Write a script to create 10 directories, say exam1,exam2,...,exam10 Report
+error if a directory/file exists with same name.
+
+#!/bin/bash
+
+echo "to create 10 directories "
+mkdir d exam2{1..10}
+
+
+echo "enter a directory name "
+read dirname
+
+if [ -d $dirname ]
+then
+        echo "directory exists "
+
+fi
+
+
+
+
+
+7.Write a script to check each entry of a directory is a file or directory.
+#!/bin/bash
+echo "Enter name of file or directory"
+read x
+
+if [ -f $x ]; then
+        echo "It is a file"
+
+elif [ -d $x ]; then
+        echo "It is a directory"
+else
+        echo "Invalid file or directory name"
+fi
+
+
+
