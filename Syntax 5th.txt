@@ -1,0 +1,34 @@
+1. Run the firefox with highest priority.
+
+firefox pid = 1986
+
+nice -n 0 firefox
+
+renice -n 0 -p 1986
+
+2. Run the firefox with lowest priority.
+
+nice -n 19 firefox
+
+3. Change the running firefox process priority to 10
+
+renice -n 10 -p 1986
+
+dac@dac-Veriton-M200-H310:~/Desktop/8393/OSC/day5$ man nice
+dac@dac-Veriton-M200-H310:~/Desktop/8393/OSC/day5$ nice -n -19 firefox
+nice: cannot set niceness: Permission denied
+dac@dac-Veriton-M200-H310:~/Desktop/8393/OSC/day5$ man nice
+dac@dac-Veriton-M200-H310:~/Desktop/8393/OSC/day5$ man 2 nice
+dac@dac-Veriton-M200-H310:~/Desktop/8393/OSC/day5$ man renice
+dac@dac-Veriton-M200-H310:~/Desktop/8393/OSC/day5$ renice -n 5 -p 1986
+1986 (process ID) old priority 0, new priority 5
+dac@dac-Veriton-M200-H310:~/Desktop/8393/OSC/day5$ renice -n 10 -p 1986
+1986 (process ID) old priority 5, new priority 10
+
+
+6. Try to kill init process (with pid 1) from your command line(using kill command) or using kill()
+system call inside one of your processes.what is the result ? comment on the same.
+
+dac@dac-Veriton-M200-H310:~$ kill -9 1
+bash: kill: (1) - Operation not permitted
+
